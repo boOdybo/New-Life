@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Login & Signup Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>Signup</header>
+        <form id="signupForm" action="#">
+          <input type="text" placeholder="Full name" required />
+          <input type="text" placeholder="Email address" required />
+          <input type="password" placeholder="Password" required />
+          <div class="radio">
+            <input type="radio" id="first" name="CoustemerType" value="1">
+            <label for="first">Trader</label>
+            <input type="radio" id="Seconde" name="CoustemerType" value="2">
+            <label for="Seconde">Customer</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <input type="submit" value="Signup" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <header>Login</header>
+        <form action="./nd.html">
+          <input type="text" placeholder="Email address" required />
+          <input type="password" placeholder="Password" required />
+          <a href="#">Forgot password?</a>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header"),
+          signupForm = document.getElementById("signupForm");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+
+        signupForm.addEventListener("submit", function(event) {
+          event.preventDefault();
+          const selectedRadio = document.querySelector('input[name="CoustemerType"]:checked').value;
+          if (selectedRadio === "1") {
+            window.location.href = "./nd/rd.html";
+          } else if (selectedRadio === "2") {
+            window.location.href = "nd.html";
+          }
+        });
+      </script>
+    </section>
+  </body>
+</html>
